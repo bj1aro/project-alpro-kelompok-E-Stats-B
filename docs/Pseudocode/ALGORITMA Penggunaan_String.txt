@@ -1,0 +1,22 @@
+ALGORITMA Penggunaan_String
+
+DEKLARASI:
+    K1: string
+    K2: string
+    K3: string
+    K4: string
+
+DESKRIPSI:
+START
+    // Inisialisasi variabel string
+    K1 = "Saya tak 'kan menyerah."
+    K2 = 'Ia berkata, "Aku menyayangimu."'
+    K3 = '"Coba jelaskan pengertian \'cross-validation\' dalam Machine Learning!"'
+    K4 = "Surat keputusan itu bernomor 62/UN.34/19/2023."
+
+    // Menampilkan output ke layar
+    PRINT K1
+    PRINT K2
+    PRINT K3
+    PRINT K4
+END

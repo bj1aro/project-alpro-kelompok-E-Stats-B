@@ -1,0 +1,61 @@
+ALGORITMA Pengolahan_NIP_ASN
+
+DEKLARASI:
+    nip: string
+    tahun: string
+    bulan_digit: string
+    tanggal: string
+    bulan: string
+
+DESKRIPSI:
+START
+    READ nip
+
+    // Validasi panjang minimal dan memastikan isinya hanya angka
+    IF LENGTH(nip) >= 8 AND IS_DIGIT(nip) = TRUE THEN
+        
+        // Ekstraksi substring dari string NIP
+        tahun = SUBSTRING(nip, 1, 4)
+        bulan_digit = SUBSTRING(nip, 5, 6)
+        tanggal = SUBSTRING(nip, 7, 8)
+        
+        // Percabangan menentukan nama bulan
+        IF bulan_digit == "01" THEN 
+            bulan = "Januari"
+        ELSE IF bulan_digit == "02" THEN 
+            bulan = "Februari"
+        ELSE IF bulan_digit == "03" THEN 
+            bulan = "Maret"
+        ELSE IF bulan_digit == "04" THEN 
+            bulan = "April"
+        ELSE IF bulan_digit == "05" THEN 
+            bulan = "Mei"
+        ELSE IF bulan_digit == "06" THEN 
+            bulan = "Juni"
+        ELSE IF bulan_digit == "07" THEN 
+            bulan = "Juli"
+        ELSE IF bulan_digit == "08" THEN 
+            bulan = "Agustus"
+        ELSE IF bulan_digit == "09" THEN 
+            bulan = "September"
+        ELSE IF bulan_digit == "10" THEN 
+            bulan = "Oktober"
+        ELSE IF bulan_digit == "11" THEN 
+            bulan = "November"
+        ELSE IF bulan_digit == "12" THEN 
+            bulan = "Desember"
+        ELSE 
+            bulan = "Tidak Valid"
+        END IF
+        
+        // Validasi akhir dan Output
+        IF bulan != "Tidak Valid" THEN
+            PRINT "Tanggal Lahir: " + tanggal + " " + bulan + " " + tahun
+        ELSE
+            PRINT "Error: Format bulan pada NIP tidak valid."
+        END IF
+
+    ELSE
+        PRINT "Error: NIP harus berupa angka dan minimal 8 digit."
+    END IF
+END

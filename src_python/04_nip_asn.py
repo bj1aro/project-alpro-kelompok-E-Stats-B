@@ -8,7 +8,7 @@ Original file is located at
 """
 
 # Program Menentukan Tanggal Lahir dari NIP ASN
-nip = 199508172023011001
+nip = "199508172023011001"
 
 # Validasi panjang NIP minimal 8 digit angka
 if len(nip) >= 8 and nip.isdigit():

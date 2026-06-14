@@ -1,0 +1,24 @@
+START
+INPUT a, b, c
+
+IF a == 0 THEN
+    OUTPUT "Nilai a tidak boleh 0, bukan persamaan kuadrat"
+ELSE
+    diskriminan = (b * b) - (4 * a * c)
+    
+    IF diskriminan > 0 THEN
+        x1 = (-b + sqrt(diskriminan)) / (2 * a)
+        x2 = (-b - sqrt(diskriminan)) / (2 * a)
+        OUTPUT "Dua akar real berbeda"
+        OUTPUT "x1 = ", x1, " (3 desimal)"
+        OUTPUT "x2 = ", x2, " (3 desimal)"
+    ELSE IF diskriminan == 0 THEN
+        x1 = -b / (2 * a)
+        OUTPUT "Satu akar real kembar"
+        OUTPUT "x1 = x2 = ", x1, " (3 desimal)"
+    ELSE
+        OUTPUT "Tidak ada akar real"
+        OUTPUT "Akar-akar imajiner"
+    END IF
+END IF
+END

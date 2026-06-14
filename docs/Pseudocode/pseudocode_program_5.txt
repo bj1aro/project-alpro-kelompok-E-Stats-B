@@ -1,0 +1,45 @@
+ALGORITMA Klasifikasi_Cluster_3D
+
+DEKLARASI:
+    xA, yA, zA: integer (konstanta pusat A)
+    xB, yB, zB: integer (konstanta pusat B)
+    xC, yC, zC: integer (konstanta pusat C)
+    xU, yU, zU: float (koordinat titik input)
+    jarak_A, jarak_B, jarak_C: float
+    cluster_terpilih: string
+
+DESKRIPSI:
+START
+    // Inisialisasi konstanta titik pusat tiap cluster
+    xA = 2; yA = 1; zA = 3
+    xB = 1; yB = -4; zB = 6
+    xC = -2; yC = 3; zC = -2
+
+    // Mendefinisikan fungsi perhitungan jarak Euclidean
+    FUNCTION hitung_jarak(x1, y1, z1, x2, y2, z2)
+        jarak = SQUARE_ROOT((x1 - x2)^2 + (y1 - y2)^2 + (z1 - z2)^2)
+        RETURN jarak
+    END FUNCTION
+
+    // Menerima input koordinat sembarang U dari pengguna
+    READ xU, yU, zU
+
+    // Memanggil fungsi untuk menghitung jarak titik U ke tiap cluster
+    jarak_A = CALL hitung_jarak(xU, yU, zU, xA, yA, zA)
+    jarak_B = CALL hitung_jarak(xU, yU, zU, xB, yB, zB)
+    jarak_C = CALL hitung_jarak(xU, yU, zU, xC, yC, zC)
+
+    // Percabangan penentuan jarak terdekat
+    IF jarak_A < jarak_B AND jarak_A < jarak_C THEN
+        cluster_terpilih = "Cluster A"
+    ELSE IF jarak_B < jarak_A AND jarak_B < jarak_C THEN
+        cluster_terpilih = "Cluster B"
+    ELSE IF jarak_C < jarak_A AND jarak_C < jarak_B THEN
+        cluster_terpilih = "Cluster C"
+    ELSE
+        cluster_terpilih = "Jarak sama kuat (tidak masuk ke satu cluster spesifik)"
+    END IF
+
+    // Menampilkan hasil
+    PRINT "Titik U tergolong sebagai anggota: " + cluster_terpilih
+END

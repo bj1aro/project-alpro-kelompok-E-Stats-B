@@ -24,7 +24,7 @@ C = (-2, 3, -2)
 
 print("--- Klasifikasi Cluster 3 Dimensi ---")
 
-# CONTOH INPUT
+# MASUKKAN CONTOH INPUT
 x = 2
 y = -3
 z = 6

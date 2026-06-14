@@ -15,7 +15,7 @@ C <- c(-2, 3, -2)
 cat("--- Klasifikasi Cluster 3 Dimensi ---\n")
 cat("Masukkan koordinat titik U(x, y, z):\n")
 
-# Membaca input dan mengubahnya menjadi angka
+# Membaca input dan mengubahnya menjadi angka(Contoh Input)
 x <- 2
 y <- -3
 z <- 6

@@ -1,5 +1,5 @@
 # Program Menentukan Tanggal Lahir dari NIP ASN
-nip <- readline(prompt = "Masukkan NIP ASN: ")
+nip <- 199508172023011001
 
 # Validasi panjang NIP minimal 8 digit angka
 if (nchar(nip) >= 8 && !grepl("\\D", nip)) {
@@ -44,5 +44,3 @@ if (nchar(nip) >= 8 && !grepl("\\D", nip)) {
 } else {
   cat("Error: NIP harus berupa angka dan minimal 8 digit.\n")
 }
-
-

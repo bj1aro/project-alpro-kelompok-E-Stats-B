@@ -1,0 +1,44 @@
+ALGORITMA Interval_Proporsi
+
+DEKLARASI:
+    p_hat       : real
+    n           : integer
+    alpha       : real
+    z           : real
+    se          : real
+    batas_bawah : real
+    batas_atas  : real
+
+DESKRIPSI:
+START
+  FUNCTION interval_kepercayaan(p_hat, n, alpha):
+
+    IF p_hat < 0 ATAU p_hat > 1 THEN
+      Tampilkan "Error: Proporsi harus berada antara 0 dan 1."
+      RETURN
+    END IF
+
+    IF alpha == 0.10 THEN
+      z <- 1.645
+    ELSE IF alpha == 0.05 THEN
+      z <- 1.96
+    ELSE
+      Tampilkan "Error: Nilai alpha hanya boleh 0.10 atau 0.05."
+      RETURN
+    END IF
+
+    se          <- sqrt(p_hat * (1 - p_hat) / n)
+    batas_bawah <- p_hat - z * se
+    batas_atas  <- p_hat + z * se
+
+    Tampilkan "Interval Kepercayaan (1 - alpha) * 100 %"
+    Tampilkan batas_bawah < p < batas_atas
+
+  END FUNCTION
+
+  INPUT p_hat
+  INPUT n
+  INPUT alpha
+
+  CALL interval_kepercayaan(p_hat, n, alpha)
+END

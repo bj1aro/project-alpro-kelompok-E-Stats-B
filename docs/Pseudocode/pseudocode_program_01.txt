@@ -1,0 +1,27 @@
+ALGORITMA Analisis_Teks
+
+DEKLARASI:
+    teks : string
+    teks_tanpa_titik : string
+    kata : array of string
+    jumlah_kata : integer
+    jumlah_kalimat : integer
+
+DESKRIPSI:
+START
+
+    INPUT teks
+
+    jumlah_kalimat ? COUNT(".", teks)
+
+    teks_tanpa_titik ? HAPUS(".", teks)
+
+    kata ? SPLIT(teks_tanpa_titik, " ")
+
+    jumlah_kata ? LENGTH(kata)
+
+    PRINT jumlah_kata
+
+    PRINT jumlah_kalimat
+
+END

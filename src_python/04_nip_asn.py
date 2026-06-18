@@ -7,46 +7,65 @@ Original file is located at
     https://colab.research.google.com/drive/1igaleCQXURvqdrxBwX8jcIuFVUinc7Qd
 """
 
-# Program Menentukan Tanggal Lahir dari NIP ASN
-nip = "199508172023011001"
+from datetime import datetime
 
-# Validasi panjang NIP minimal 8 digit angka
+# Program Menentukan Tanggal Lahir dari NIP ASN
+nip = "200002292023011001"  
+
+# 1. Validasi panjang NIP minimal 8 digit angka
 if len(nip) >= 8 and nip.isdigit():
     tahun = nip[0:4]
     bulan_digit = nip[4:6]
     tanggal = nip[6:8]
 
-    # Percabangan memilih nama bulan
-    if bulan_digit == "01":
-        bulan = "Januari"
-    elif bulan_digit == "02":
-        bulan = "Februari"
-    elif bulan_digit == "03":
-        bulan = "Maret"
-    elif bulan_digit == "04":
-        bulan = "April"
-    elif bulan_digit == "05":
-        bulan = "Mei"
-    elif bulan_digit == "06":
-        bulan = "Juni"
-    elif bulan_digit == "07":
-        bulan = "Juli"
-    elif bulan_digit == "08":
-        bulan = "Agustus"
-    elif bulan_digit == "09":
-        bulan = "September"
-    elif bulan_digit == "10":
-        bulan = "Oktober"
-    elif bulan_digit == "11":
-        bulan = "November"
-    elif bulan_digit == "12":
-        bulan = "Desember"
-    else:
-        bulan = "Tidak Valid"
+    # 2. VALIDASI KALENDER NYATA & TAHUN MAJU
+    try:
+        # Pengecekan keabsahan tanggal kalender
+        objek_tanggal = datetime.strptime(f"{tahun}-{bulan_digit}-{tanggal}", "%Y-%m-%d")
+        
+        # Pengecekan apakah tahun lahir melebihi tahun berjalan saat ini
+        tahun_sekarang = datetime.now().year
+        if int(tahun) > tahun_sekarang:
+            print(f"Error: Tahun lahir ({tahun}) tidak logis karena melebihi tahun berjalan saat ini ({tahun_sekarang})!")
+            kalender_valid = False
+        else:
+            kalender_valid = True
+            
+    except ValueError:
+        print("Error: Kombinasi tanggal dan bulan lahir tidak logis/tidak eksis di kalender!")
+        kalender_valid = False
 
-    if bulan != "Tidak Valid":
+    # Jika lolos seluruh validasi logis, lanjutkan penentuan nama bulan
+    if kalender_valid:
+        if bulan_digit == "01":
+            bulan = "Januari"
+        elif bulan_digit == "02":
+            bulan = "Februari"
+        elif bulan_digit == "03":
+            bulan = "Maret"
+        elif bulan_digit == "04":
+            bulan = "April"
+        elif bulan_digit == "05":
+            bulan = "Mei"
+        elif bulan_digit == "06":
+            bulan = "Juni"
+        elif bulan_digit == "07":
+            bulan = "Juli"
+        elif bulan_digit == "08":
+            bulan = "Agustus"
+        elif bulan_digit == "09":
+            bulan = "September"
+        elif bulan_digit == "10":
+            bulan = "Oktober"
+        elif bulan_digit == "11":
+            bulan = "November"
+        elif bulan_digit == "12":
+            bulan = "Desember"
+        else:
+            bulan = "Tidak Valid"
+
+        print(f"NIP: {nip}")
         print(f"Tanggal Lahir: {tanggal} {bulan} {tahun}")
-    else:
-        print("Error: Format bulan pada NIP tidak valid.")
 else:
     print("Error: NIP harus berupa angka dan minimal 8 digit.")
+

@@ -32,7 +32,7 @@ if len(nip) >= 8 and nip.isdigit():
             kalender_valid = True
             
     except ValueError:
-        print("Error: Kombinasi tanggal dan bulan lahir tidak logis/tidak eksis di kalender!")
+        print("Error: Kombinasi tanggal dan bulan lahir yang Anda masukkan tidak valid")
         kalender_valid = False
 
     # Jika lolos seluruh validasi logis, lanjutkan penentuan nama bulan

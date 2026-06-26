@@ -9,7 +9,7 @@ Original file is located at
 
 import math
 
-# 1. Mendefinisikan Fungsi (Syarat Wajib Modul 8)
+# 1. Mendefinisikan Fungsi
 def hitung_jarak(titik1, titik2):
     # Rumus jarak Euclidean 3D
     jarak = math.sqrt((titik1[0] - titik2[0])**2 +
